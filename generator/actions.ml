@@ -10668,6 +10668,7 @@ you are better to use C<guestfs_mv> instead." };
     name = "part_set_gpt_type";
     style = RErr, [Device "device"; Int "partnum"; String "guid"], [];
     proc_nr = Some 392;
+    optional = Some "gdisk";
     tests = [];
     shortdesc = "set the type GUID of a GPT partition";
     longdesc = "\
@@ -10682,6 +10683,7 @@ for a useful list of type GUIDs." };
     name = "part_get_gpt_type";
     style = RString "guid", [Device "device"; Int "partnum"], [];
     proc_nr = Some 393;
+    optional = Some "gdisk";
     tests = [
       InitGPT, Always, TestOutput (
         [["part_set_gpt_type"; "/dev/sda"; "1";
